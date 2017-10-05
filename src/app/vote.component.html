@@ -1,0 +1,26 @@
+<h1>Vote!</h1>
+<div *ngIf="choiceService.grade == 1">
+<h2>First grade male candidates</h2>
+<md-radio-group [(ngModel)]="candidateNameToVote1M">
+  <md-radio-button *ngFor="let candidateName of choiceService.candidateNames.candidateNames1M" [value]="candidateName">
+    {{candidateName}}
+  </md-radio-button>
+</md-radio-group>
+<hr>
+<h2>First grade female candidates</h2>
+<md-radio-group [(ngModel)]="candidateNameToVote1F">
+  <md-radio-button *ngFor="let candidateName of choiceService.candidateNames.candidateNames1F" [value]="candidateName">
+    {{candidateName}}
+  </md-radio-button>
+</md-radio-group>
+<hr>
+</div>
+<h2>Second grade candidates</h2>
+<md-radio-group [(ngModel)]="candidateNameToVote2">
+  <md-radio-button *ngFor="let candidateName of choiceService.candidateNames.candidateNames2" [value]="candidateName">
+    {{candidateName}}
+  </md-radio-button>
+</md-radio-group>
+<hr>
+<button md-button (click)="onVote()">Vote</button>
+<button md-button (click)="choiceService.resetAuth(); router.navigate(['/login'])">Back</button>
