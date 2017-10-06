@@ -1,12 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
-@font-face {
-  font-family: hangang;
-  src: url(assets/font/SeoulNamsanM.woff);
-}
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet"');
 
-
-.container {
+.container-login {
   width: 400px;
 
   position: absolute;
@@ -40,6 +36,39 @@
   child-align: middle;
 }
 
-.title .login {
-  font-family: hangang;
+.container-vote {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  margin-left: -288px;
+  margin-top: -200px;
+}
+
+md-radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+md-radio-button {
+  margin: 10px;
+}
+
+.vote-paper {
+  border: outset;
+  width: 500px;
+  padding: 30px;
+  margin-bottom: 15px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+}
+
+.vote-actions {
+  text-align: right;
+  padding-right: 30px;
 }

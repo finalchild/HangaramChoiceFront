@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-login">
   <md-toolbar color="primary">
     <h1 class="title">한가람고 학생회장단 투표</h1>
   </md-toolbar>
@@ -6,11 +6,11 @@
   <div class="key_row">
     <md-icon class="account_circle" svgIcon="account_circle"></md-icon>
     <md-form-field>
-      <input #key mdInput placeholder="학생 키" type="number">
+      <input #key mdInput placeholder="학생 키" type="text" autocomplete="off">
     </md-form-field>
   </div>
   <br>
   <div class="login">
-    <button class="login" color="primary" md-raised-button (click)="onLogin(key.value)">로그인</button>
+    <button class="login" color="primary" md-raised-button (click)="onLogin(key)">로그인</button>
   </div>
 </div>
