@@ -1,9 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@font-face {
+  font-family: hangang;
+  src: url(assets/font/SeoulNamsanM.woff);
+}
+
 
 .container {
-  margin: auto;
-  height: 250px;
   width: 400px;
-  display: flex;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -200px;
+  margin-left: -228px;
+  padding: 30px;
+
+  border: outset;
+}
+
+.mat-form-field {
+  width: 357px;
+}
+
+.key_row {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.account_circle {
+  margin-right: 5px;
+}
+
+.login {
+  margin: auto;
+  width: 88px;
+  align-items: center;
+  align-content: center;
+  child-align: middle;
+}
+
+.title .login {
+  font-family: hangang;
 }

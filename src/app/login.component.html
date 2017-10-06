@@ -3,10 +3,14 @@
     <h1 class="title">한가람고 학생회장단 투표</h1>
   </md-toolbar>
   <br>
-  <md-icon svgIcon="account_circle"></md-icon>
-  <md-form-field>
-    <input #key mdInput placeholder="학생 키" type="number">
-  </md-form-field>
+  <div class="key_row">
+    <md-icon class="account_circle" svgIcon="account_circle"></md-icon>
+    <md-form-field>
+      <input #key mdInput placeholder="학생 키" type="number">
+    </md-form-field>
+  </div>
   <br>
-  <button md-button (click)="onLogin(key.value)">로그인</button>
+  <div class="login">
+    <button class="login" color="primary" md-raised-button (click)="onLogin(key.value)">로그인</button>
+  </div>
 </div>
