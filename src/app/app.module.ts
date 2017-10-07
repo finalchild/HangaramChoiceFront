@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -17,6 +17,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {StudentGuardService} from './student-guard.service';
 import {MdToolbarModule} from '@angular/material';
 import {HttpModule} from '@angular/http';
+import {AdminRoutingModule} from './admin/admin-routing.module';
 
 @NgModule({
   declarations: [
@@ -42,13 +43,13 @@ import {HttpModule} from '@angular/http';
         component: VoteFormComponent
       }
     ]),
+    AdminRoutingModule,
     FormsModule,
     HttpClientModule,
     MdButtonModule,
     MdFormFieldModule,
     MdInputModule,
     MdRadioModule,
-    BrowserAnimationsModule,
     MdToolbarModule,
     MdIconModule,
     HttpModule,

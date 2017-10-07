@@ -1,23 +1,19 @@
-import {Component, HostBinding} from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {ChoiceService} from './choice.service';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {MdIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
-import {animation} from './animations';
 
 @Component({
   selector: 'hc-vote',
-  templateUrl: './vote.component.html',
-  animations: [animation]
+  templateUrl: './vote.component.html'
 })
 export class VoteFormComponent {
 
   candidateNameToVote1M: string;
   candidateNameToVote1F: string;
   candidateNameToVote2: string;
-
-  @HostBinding('@routeAnimation') routeAnimation = true;
 
   constructor(public choiceService: ChoiceService,
               public router: Router,

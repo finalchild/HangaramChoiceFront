@@ -1,15 +1,14 @@
-import {Component, HostBinding} from '@angular/core';
+import {Component} from '@angular/core';
 import {ChoiceService} from './choice.service';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {MdIconRegistry} from '@angular/material';
 import {DomSanitizer} from '@angular/platform-browser';
-import {animation} from './animations';
+import {NgModel} from '@angular/forms';
 
 @Component({
   selector: 'hc-login',
   templateUrl: './login.component.html',
-  animations: [animation]
 })
 export class LoginComponent {
 
@@ -21,13 +20,23 @@ export class LoginComponent {
     iconRegistry.addSvgIcon('account_circle', sanitizer.bypassSecurityTrustResourceUrl('assets/img/account_circle.svg'));
   }
 
-  onLogin(keyElement: HTMLInputElement) {
+  error: string = undefined;
+
+  onLogin(keyElement: HTMLInputElement, model: NgModel) {
     if (!keyElement.value || keyElement.value === '') {
+      model.control.setErrors({
+        empty: true
+      });
+      this.error = '키를 입력해 주세요';
       keyElement.focus();
       return;
     }
     const key = parseInt(keyElement.value, 10);
     if (!isValidKey(key)) {
+      model.control.setErrors({
+        invalid: true
+      });
+      this.error = '키는 7자리 이하의 자연수여야 합니다';
       keyElement.focus();
       return;
     }
@@ -44,10 +53,14 @@ export class LoginComponent {
         }
         this.router.navigate(['/vote']);
       }, err => {
-        console.log(err);
         if (err instanceof HttpErrorResponse) {
-          alert(JSON.parse(err.error)['message']);
+          model.control.setErrors({
+            couldNotLogin: true
+          });
+          this.error = JSON.parse(err.error)['message'];
           keyElement.focus();
+        } else {
+          console.log(err);
         }
       });
   }
